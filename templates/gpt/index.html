@@ -1,0 +1,51 @@
+<!doctype html>
+{% include "head.html" %}
+<body>
+    <div class="wrap">
+        <main class="container">
+            {% include "header.html" %}
+            <section>
+                <form class="form_box">
+                    {% csrf_token %}
+                    <div class="radio_box clear_fix">
+                        <label class="radio_btn float_left">
+                            <input value="text" name="choice_chat" type="radio" checked>
+                            <span class="radio"></span>
+                            text
+                        </label>
+                        <label class="radio_btn float_right">
+                            <input value="img" name="choice_chat" type="radio">
+                            <span class="radio"></span>
+                            image
+                        </label>
+                    </div>
+                    <div class="form-control">
+                        <textarea id="question" name="question"></textarea>
+                        <label>
+                            <span style="transition-delay:0ms">Q</span>
+                            <span style="transition-delay:50ms">U</span>
+                            <span style="transition-delay:100ms">E</span>
+                            <span style="transition-delay:150ms">S</span>
+                            <span style="transition-delay:200ms">T</span>
+                            <span style="transition-delay:250ms">I</span>
+                            <span style="transition-delay:300ms">O</span>
+                            <span style="transition-delay:350ms">N</span>
+                        </label>
+                    </div>
+                </form>
+                <div class="btn_box">
+                    <button id="text-button" class="button btn gpt_send">질문</button>
+                </div>
+            </section>
+            <section>
+                <div class="answer_box">
+                    <strong>ANSWER</strong>
+                    <ul class="answer_list">
+                        
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+{% include "head.html" %}
+<body>
+    <script>
+        let idNum = 0;
+        function addFile(){
+            deepCopy();
+        }
+        function deepCopy()  {
+          // 'test' node 선택
+          const fileModule = document.getElementById('file-module-'+idNum);
+            // 노드 복사하기 (deep copy)
+          const newNode = fileModule.cloneNode(true);
+    
+          console.log(newNode)
+    
+          // 복사된 Node id 변경하기
+          idNum++;
+          newNode.id = 'file-module-' + idNum;
+    
+          // 복사한 노드 붙여넣기
+          fileModule.after(newNode);
+        }
+    </script>
+    <div class="wrap">
+        <main class="container">
+            {% include "header.html" %}
+            <section>
+                <form class="file_box" id="photo_form">
+                    <div class="content">
+                        <span class="title">Upload a File</span>
+                            <p class="message">Select a file to upload from your computer or device.</p>
+                            
+                        <div class="actions">
+                            <label for="file" class="button upload-btn">Choose File
+                                <input hidden="" type="file" id="file">
+                            </label>
+                        </div>
+                        <div class="result">
+                            <div class="file-uploaded">
+                                <p>profile_pic.png</p>
+                                <button class='file_del'>X</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="btn_box">
+                    <button id="text-button" class="button btn img_send">질문</button>
+                </div>
+            </section>
+            <section>
+                <div class="answer_box">
+                    <strong>ANSWER</strong>
+                    <ul class="answer_list">
+                        
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div> 
+</body>
