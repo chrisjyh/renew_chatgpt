@@ -14,5 +14,9 @@ renw chatgpt
 
 3. start server
  - `python manage.py runserver`
+
+4. create secrets.json file
+- ` {"OPEN_AI_API": "key" }`
+[opne_ai_key](https://platform.openai.com/account/api-keys).
 ------------------------------------
 
