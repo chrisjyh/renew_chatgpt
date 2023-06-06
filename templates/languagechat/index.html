@@ -1,27 +1,6 @@
 <!doctype html>
 {% include "head.html" %}
 <body>
-    <script>
-        let idNum = 0;
-        function addFile(){
-            deepCopy();
-        }
-        function deepCopy()  {
-          // 'test' node 선택
-          const fileModule = document.getElementById('file-module-'+idNum);
-            // 노드 복사하기 (deep copy)
-          const newNode = fileModule.cloneNode(true);
-    
-          console.log(newNode)
-    
-          // 복사된 Node id 변경하기
-          idNum++;
-          newNode.id = 'file-module-' + idNum;
-    
-          // 복사한 노드 붙여넣기
-          fileModule.after(newNode);
-        }
-    </script>
     <div class="wrap">
         <main class="container">
             {% include "header.html" %}
@@ -33,15 +12,12 @@
                             
                         <div class="actions">
                             <label for="file" class="button upload-btn">Choose File
-                                <input hidden="" type="file" id="file">
+                                <input hidden="" type="file" id="file" multiple='multiple'>
                             </label>
                         </div>
-                        <div class="result">
-                            <div class="file-uploaded">
-                                <p>profile_pic.png</p>
-                                <button class='file_del'>X</button>
-                            </div>
-                        </div>
+                        <ul class="upload_result">
+                            
+                        </ul>
                     </div>
                 </form>
                 <div class="btn_box">
@@ -57,5 +33,39 @@
                 </div>
             </section>
         </main>
-    </div> 
+    </div>
+    <script>
+        $(document).ready(function(){
+            // 파일 첨부기능
+            many_file = [];
+
+            $("#file").on("change",function(){
+                // ...은 배열의 개별요소로 들어가게 해줌
+                const selectedFile = [...this.files];
+                many_file.push(...selectedFile);
+                let file_tag = '';
+
+                // 파일 리스트 추가
+                for (i in many_file){
+                    file_tag += `
+                    <li class="file-uploaded">
+                        <p class="file_name ellipsis">${many_file[i]['name']}</p>
+                        <button type="button" class="btn file_del" tag=${i}>X</button>
+                    </li>`;
+                }
+                $(".upload_result").html(file_tag)
+            });
+
+            // 동적으로 생성된 돔에서 이벤트가 발생하지 않기때문에 
+            // 돔이 생성된 후 버튼 이벤트가 실행되게 하는 함수
+            $(document).on("click",".btn",function(){
+                let index = $(this).attr('tag')
+                // 특정 인덱스 삭제 splice(삭제시작행, 몇개)
+                many_file.splice(index, 1);
+                $(this).parent().remove();
+            });
+
+
+        });  
+    </script>
 </body>

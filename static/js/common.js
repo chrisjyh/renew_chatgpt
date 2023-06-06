@@ -1,7 +1,9 @@
 $(document).ready(function(){
     // 버튼 전체 처리
     $('.btn').on('click',function(){
-        if($(".btn").hasClass("gpt_send") === true) {
+        
+        console.log('bbbbbbbbbbbb')
+        if($(this).hasClass("gpt_send") === true) {
             // gpt api 불러오는 버튼
             let input_val = $("textarea[name='question']").val();
             let radio_val = $("input[name='choice_chat']:checked").val();
@@ -13,7 +15,7 @@ $(document).ready(function(){
                 send(input_val,"imageGPT","answer_img_uplist")
             }
 
-        } else if($(".btn").hasClass("img_send") === true){
+        } else if($(this).hasClass("img_send") === true){
             // 수어 gpt 전송 버튼
             send("input_val","chatGPT","answer_uplist")
             console.log("hi")

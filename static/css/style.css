@@ -48,15 +48,17 @@
 .loader-wrapper .dots .dot:nth-child(3) {left: 30px; animation: dot-stage1 0.5s infinite;}
 .loader-wrapper .dots .dot:nth-child(4) {left: 10px; animation: dot-stage2 0.5s infinite;}
 
-.file_box {margin: 0 auto; padding: 20px; max-width: 330px; background: #ffffff; border-radius: 10px; transition: background-color 0.3s, color 0.3s;}
+.file_box {margin: 0 auto 30px; padding: 20px; max-width: 330px; background: #ffffff; border-radius: 10px; transition: background-color 0.3s, color 0.3s;}
 .file_box .title {display: inline-block; padding: 15px 0; width: 100%; font-size: 1.8rem; font-weight: 600; line-height: 1.5; text-align: center;}
 .file_box .message {padding-bottom: 15px; font-size: 1.3rem; line-height: 1.3; text-align: center;}
 .actions {display: flex; align-items: center; flex-wrap: wrap;}
 .upload-btn {background: transparent; border: 1px dashed #72798C; flex: 1; padding: 15px 20px; color: #181818}
 .upload-btn:hover {background: #E2E4E8;}
-.result {margin-top: 15px; padding: 10px 20px; border-radius: 10px;}
-.file-uploaded {position: relative; font-weight: 300;}
-.file_del {position: absolute; top :0 ;right: 0;}
+.upload_result {margin-top: 15px; padding: 10px 20px; max-height: 200px; overflow: auto; border-radius: 10px;}
+.upload_result .file-uploaded {position: relative; padding:0 20px 15px 0;}
+.upload_result .file_del {position: absolute; top :0 ;right: 0; width:20px; height: 20px; z-index: 1000;}
+.upload_result .file_name {width: 100%; font-size: 1.1rem; line-height: 1.5; overflow: hidden; text-overflow: ellipsis;}
+
 
 .radio_box {position: absolute; top: 0; right: 0;}
 .radio_box::after {display: block; clear:both; content:'';}
